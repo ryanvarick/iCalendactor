@@ -44,10 +44,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func togglePopover(_ sender: AnyObject?) {
-        if popover.isShown { // close
+        if popover.isShown {
             popover.performClose(sender)
         }
-        else { // open
+        else {
             if let button = statusBarItem.button {
                 popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             }

@@ -27,7 +27,7 @@ class CalendarModel: ObservableObject {
     @Published var events: [EKEvent] = []
 
     init() {
-        self.calendars = eventStore.calendars(for: .event)
+        calendars = eventStore.calendars(for: .event)
             .sorted() { return $0.title < $1.title }
             .map() { return CalendarItem(calendar: $0) }
         
@@ -46,7 +46,7 @@ class CalendarModel: ObservableObject {
         var enabledCalendars: [EKCalendar] = calendars
             .filter() { return $0.enabled }
             .map() { return $0.calendar }
-        if(enabledCalendars.isEmpty) { enabledCalendars = [EKCalendar()] }
+        if enabledCalendars.isEmpty { enabledCalendars = [EKCalendar()] }
         
         let eventsPredicate = eventStore.predicateForEvents(
             withStart: now - TimeInterval(daysBack * secondsPerDay),
