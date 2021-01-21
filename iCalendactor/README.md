@@ -2,20 +2,25 @@
 
 Roadmap:
 
-* https://github.com/derekantrican/GAS-ICS-Sync
+
+Gonna need to update manually:
+
+For now, push & diff via Google Apps Script?
+
+* https://github.com/derekantrican/GAS-ICS-Sync (10k LOC)
+* https://gist.github.com/afunTW/bf958eea15835d14aa976990d1f0bb88 (Python)
+* https://stackoverflow.com/questions/50227276/obtaining-google-calendar-in-swift (Swift)
+* https://stackoverflow.com/search?q=%5Bgoogle-apps-script (Starter SO search, not much for ics/ical)
 
 * Add last update state variable
-* Add local notifications ([example](https://medium.com/better-programming/scheduling-notifications-and-badges-in-swiftui-9edf8574b893))
-* Run export automatically
+* Diff before and after events for detailed status updates
 
 * Answer stack overflow question
-* Run export on wake, on start, every N hours
 * UI refactor
 
 Longer term:
 
-*  Settings for calendar name, busy/Busy, timezone
-* Diff before and after events for detailed status updates
+* Settings for calendar name, busy/Busy, timezone
 * Listen for calendar changes/additions
 * Save state between runs, e.g. selected calendar(s)
 * Upload mechanism compaitble with sandbox settings

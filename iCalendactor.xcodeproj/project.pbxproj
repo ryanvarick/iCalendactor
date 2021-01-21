@@ -16,6 +16,7 @@
 		3D63245A25AB8C9F00BD5FB3 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63245925AB8C9F00BD5FB3 /* CalendarModel.swift */; };
 		3D63245E25AB997000BD5FB3 /* SerializedEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63245D25AB997000BD5FB3 /* SerializedEventsView.swift */; };
 		3D77E90B25B52A330034A562 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D77E90A25B52A320034A562 /* README.md */; };
+		3D77E90F25B7F3440034A562 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77E90E25B7F3440034A562 /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		3D63245925AB8C9F00BD5FB3 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		3D63245D25AB997000BD5FB3 /* SerializedEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializedEventsView.swift; sourceTree = "<group>"; };
 		3D77E90A25B52A320034A562 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3D77E90E25B7F3440034A562 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				3D63245625AB8C2800BD5FB3 /* CalendarView.swift */,
 				3D63245D25AB997000BD5FB3 /* SerializedEventsView.swift */,
 				3D77E90A25B52A320034A562 /* README.md */,
+				3D77E90E25B7F3440034A562 /* LocalNotificationManager.swift */,
 				3D63244425AB8ADF00BD5FB3 /* Assets.xcassets */,
 				3D63244925AB8ADF00BD5FB3 /* Info.plist */,
 				3D63244A25AB8ADF00BD5FB3 /* iCalendactor.entitlements */,
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D77E90F25B7F3440034A562 /* LocalNotificationManager.swift in Sources */,
 				3D63244325AB8ADE00BD5FB3 /* ContentView.swift in Sources */,
 				3D63245E25AB997000BD5FB3 /* SerializedEventsView.swift in Sources */,
 				3D63245A25AB8C9F00BD5FB3 /* CalendarModel.swift in Sources */,

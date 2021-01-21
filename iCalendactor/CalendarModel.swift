@@ -12,6 +12,8 @@ class CalendarModel: ObservableObject {
     
     private let eventStore = EKEventStore()
     private let eventStoreObserver = NotificationCenter.default
+    
+    private var notificationManager = LocalNotificationManager()
 
     let minDays: Int = 1
     let maxDays: Int = 365
@@ -68,8 +70,9 @@ class CalendarModel: ObservableObject {
 
     
     func refresh() {
-        print("refresh: fired")
+//        print("refresh: fired")
         loadEvents()
+        notificationManager.sendNotification(title: "Calendar Refreshed", subtitle: nil, body: "refresh() triggered: UPLOAD THE FEEEED", launchIn: 0.01)
     }
 
     func toggle(calendar: CalendarItem) {
