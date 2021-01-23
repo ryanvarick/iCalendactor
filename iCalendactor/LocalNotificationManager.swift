@@ -26,7 +26,6 @@ class LocalNotificationManager: ObservableObject {
     }
     
     func sendNotification(title: String, subtitle: String?, body: String, launchIn: Double) {
-        print("Scheduling...")
         let content = UNMutableNotificationContent()
         content.title = title
         if let subtitle = subtitle {
@@ -44,7 +43,6 @@ class LocalNotificationManager: ObservableObject {
         let request = UNNotificationRequest(identifier: "demoNotification", content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-        print("Scheduled, I think?")
     }
 
 }

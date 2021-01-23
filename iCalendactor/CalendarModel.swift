@@ -27,6 +27,15 @@ class CalendarModel: ObservableObject {
     
     @Published var calendars: [CalendarItem]
     @Published var events: [EKEvent] = []
+    
+    // TBD: NEW SYSTEM
+    @Published var eventList: Set = Set<EKEvent>()
+    private var cachedEventList: Set = Set<EKEvent>()
+    private var lastUpdate: Date = Date()
+    var addedEvents: Set = Set<EKEvent>()
+    var removedEvents: Set = Set<EKEvent>()
+    // scan for changes too?
+    // https://developer.apple.com/documentation/eventkit/ekevent/1507437-eventidentifier
 
     init() {
         calendars = eventStore.calendars(for: .event)
@@ -37,7 +46,7 @@ class CalendarModel: ObservableObject {
         eventStoreObserver.addObserver(forName: .EKEventStoreChanged, object: nil, queue: nil)
             { _ in self.refresh() }
         
-        // add: daily, return from sleep
+        // add: daily, return from sleep (not needed?)
     }
     
     func loadEvents() {
@@ -60,19 +69,44 @@ class CalendarModel: ObservableObject {
         let ekEvents = eventStore.events(matching: eventsPredicate)
             .filter() {
                 if $0.availability == .free {
-                    print("\($0.title!) is FREE")
+//                    print("\($0.title!) is FREE")
                 }
                 return true
             }
             .sorted { return $0.startDate < $1.startDate }
         self.events = ekEvents
+        
+        // NEW
+        eventList = Set.init(ekEvents)
+        addedEvents = eventList.subtracting(cachedEventList)
+        removedEvents = cachedEventList.subtracting(eventList)
+        
+        let format = NSLocalizedString("number_of_events", comment: "")
+        var message = "No changes."
+
+        if cachedEventList.count == eventList.count {
+            if addedEvents.count == removedEvents.count {
+                message = "\(String.localizedStringWithFormat(format, addedEvents.count)) changed."
+            }
+        }
+        else if addedEvents.count > 0 {
+            message = "\(String.localizedStringWithFormat(format, addedEvents.count)) added."
+        }
+        else if removedEvents.count > 0 {
+            message = "\(String.localizedStringWithFormat(format, removedEvents.count)) removed."
+        }
+
+        print("load: eventList: \(eventList.count) cached: \(cachedEventList.count); added \(addedEvents.count); removed \(removedEvents.count)")
+        notificationManager.sendNotification(title: "Calendar Updated", subtitle: nil, body: message, launchIn: 1.0)
+
+        cachedEventList = eventList
+        lastUpdate = Date()
+
     }
 
     
     func refresh() {
-//        print("refresh: fired")
         loadEvents()
-        notificationManager.sendNotification(title: "Calendar Refreshed", subtitle: nil, body: "refresh() triggered: UPLOAD THE FEEEED", launchIn: 0.01)
     }
 
     func toggle(calendar: CalendarItem) {
