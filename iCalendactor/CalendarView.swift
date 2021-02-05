@@ -13,7 +13,11 @@ struct CalendarView: View {
         SettingsView()
         CalendarListView()
         EventListView()
-        SerializedEventsView()
+//        SerializedEventsView()
+        Section(header: Text("Yeh"), footer: Text("No")) {
+            Text("Updated:")
+            Text(model.lastUpdate, style: .time)
+        }
     }
 }
 

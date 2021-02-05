@@ -31,11 +31,9 @@ class CalendarModel: ObservableObject {
     // TBD: NEW SYSTEM
     @Published var eventList: Set = Set<EKEvent>()
     private var cachedEventList: Set = Set<EKEvent>()
-    private var lastUpdate: Date = Date()
     var addedEvents: Set = Set<EKEvent>()
     var removedEvents: Set = Set<EKEvent>()
-    // scan for changes too?
-    // https://developer.apple.com/documentation/eventkit/ekevent/1507437-eventidentifier
+    @Published var lastUpdate: Date = Date()
 
     init() {
         calendars = eventStore.calendars(for: .event)
@@ -45,8 +43,6 @@ class CalendarModel: ObservableObject {
         // respond to external calendar changes
         eventStoreObserver.addObserver(forName: .EKEventStoreChanged, object: nil, queue: nil)
             { _ in self.refresh() }
-        
-        // add: daily, return from sleep (not needed?)
     }
     
     func loadEvents() {
@@ -83,10 +79,14 @@ class CalendarModel: ObservableObject {
         
         let format = NSLocalizedString("number_of_events", comment: "")
         var message = "No changes."
+        var sendUpdate = true
 
+        // probably better to compare cached to new first, and if different, then check delta types
+        print("load: eventList: \(eventList.count) cached: \(cachedEventList.count); added \(addedEvents.count); removed \(removedEvents.count)")
         if cachedEventList.count == eventList.count {
             if addedEvents.count == removedEvents.count {
-                message = "\(String.localizedStringWithFormat(format, addedEvents.count)) changed."
+                message = "\(Date()): \(String.localizedStringWithFormat(format, addedEvents.count)) changed. Notification supressed."
+                sendUpdate = false
             }
         }
         else if addedEvents.count > 0 {
@@ -95,13 +95,15 @@ class CalendarModel: ObservableObject {
         else if removedEvents.count > 0 {
             message = "\(String.localizedStringWithFormat(format, removedEvents.count)) removed."
         }
-
-        print("load: eventList: \(eventList.count) cached: \(cachedEventList.count); added \(addedEvents.count); removed \(removedEvents.count)")
-        notificationManager.sendNotification(title: "Calendar Updated", subtitle: nil, body: message, launchIn: 1.0)
+        if sendUpdate {
+            // clear old notifications?
+            // supress calendar toggles, at least the initial one
+            // need to distinguish between user action/range aging and event updates (maybe event handler sets a flag?)
+            notificationManager.sendNotification(title: "Calendar Updated", body: message, launchIn: 1.0)
+        }
 
         cachedEventList = eventList
         lastUpdate = Date()
-
     }
 
     
@@ -110,7 +112,6 @@ class CalendarModel: ObservableObject {
     }
 
     func toggle(calendar: CalendarItem) {
-        print("toggled \(calendar.calendar.title);  \(calendar.id)")
         calendar.toggle()
         refresh()
         // stupid ugly hack
@@ -135,7 +136,6 @@ class CalendarItem: Identifiable, ObservableObject {
     
     func toggle() {
         enabled = !enabled
-        print("toggling  \(id) state to \(enabled)")
     }
     
 }

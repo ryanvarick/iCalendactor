@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        // Refactor top views, isAuthorized vs not, store in a state variable
         PermissionsView().padding()
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D07938625CCDEED00B0C9AA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D07938525CCDEED00B0C9AA /* README.md */; };
 		3D63244125AB8ADE00BD5FB3 /* iCalendactorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63244025AB8ADE00BD5FB3 /* iCalendactorApp.swift */; };
 		3D63244325AB8ADE00BD5FB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63244225AB8ADE00BD5FB3 /* ContentView.swift */; };
 		3D63244525AB8ADF00BD5FB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D63244425AB8ADF00BD5FB3 /* Assets.xcassets */; };
@@ -15,12 +16,12 @@
 		3D63245725AB8C2800BD5FB3 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63245625AB8C2800BD5FB3 /* CalendarView.swift */; };
 		3D63245A25AB8C9F00BD5FB3 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63245925AB8C9F00BD5FB3 /* CalendarModel.swift */; };
 		3D63245E25AB997000BD5FB3 /* SerializedEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63245D25AB997000BD5FB3 /* SerializedEventsView.swift */; };
-		3D77E90B25B52A330034A562 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D77E90A25B52A320034A562 /* README.md */; };
 		3D77E90F25B7F3440034A562 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D77E90E25B7F3440034A562 /* LocalNotificationManager.swift */; };
 		3D77E91525BB8F570034A562 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 3D77E91725BB8F570034A562 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D07938525CCDEED00B0C9AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D63243D25AB8ADE00BD5FB3 /* iCalendactor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCalendactor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D63244025AB8ADE00BD5FB3 /* iCalendactorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCalendactorApp.swift; sourceTree = "<group>"; };
 		3D63244225AB8ADE00BD5FB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		3D63245625AB8C2800BD5FB3 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		3D63245925AB8C9F00BD5FB3 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
 		3D63245D25AB997000BD5FB3 /* SerializedEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializedEventsView.swift; sourceTree = "<group>"; };
-		3D77E90A25B52A320034A562 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3D77E90E25B7F3440034A562 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		3D77E91625BB8F570034A562 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +53,7 @@
 			children = (
 				3D63243F25AB8ADE00BD5FB3 /* iCalendactor */,
 				3D63243E25AB8ADE00BD5FB3 /* Products */,
+				3D07938525CCDEED00B0C9AA /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,11 +74,10 @@
 				3D63245925AB8C9F00BD5FB3 /* CalendarModel.swift */,
 				3D63245625AB8C2800BD5FB3 /* CalendarView.swift */,
 				3D63245D25AB997000BD5FB3 /* SerializedEventsView.swift */,
-				3D77E90A25B52A320034A562 /* README.md */,
 				3D77E90E25B7F3440034A562 /* LocalNotificationManager.swift */,
 				3D63244425AB8ADF00BD5FB3 /* Assets.xcassets */,
-				3D63244925AB8ADF00BD5FB3 /* Info.plist */,
 				3D63244A25AB8ADF00BD5FB3 /* iCalendactor.entitlements */,
+				3D63244925AB8ADF00BD5FB3 /* Info.plist */,
 				3D77E91725BB8F570034A562 /* Localizable.stringsdict */,
 				3D63244625AB8ADF00BD5FB3 /* Preview Content */,
 			);
@@ -148,9 +148,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D77E90B25B52A330034A562 /* README.md in Resources */,
 				3D77E91525BB8F570034A562 /* Localizable.stringsdict in Resources */,
 				3D63244825AB8ADF00BD5FB3 /* Preview Assets.xcassets in Resources */,
+				3D07938625CCDEED00B0C9AA /* README.md in Resources */,
 				3D63244525AB8ADF00BD5FB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
