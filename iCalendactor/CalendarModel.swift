@@ -29,10 +29,10 @@ class CalendarModel: ObservableObject {
     @Published var events: [EKEvent] = []
     
     // TBD: NEW SYSTEM
-    @Published var eventList: Set = Set<EKEvent>()
-    private var cachedEventList: Set = Set<EKEvent>()
-    var addedEvents: Set = Set<EKEvent>()
-    var removedEvents: Set = Set<EKEvent>()
+    @Published var eventList: Set<EKEvent> = Set()
+    private var cachedEventList: Set<EKEvent> = Set()
+    var addedEvents: Set<EKEvent> = Set()
+    var removedEvents: Set<EKEvent> = Set()
     @Published var lastUpdate: Date = Date()
 
     init() {
